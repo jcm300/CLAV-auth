@@ -5,8 +5,24 @@ var logger = require('morgan');
 var app = express();
 
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+
+//body parser for post requests
+var bodyParser = require('body-parser')
+app.use(bodyParser.json({limit: '50mb'}));                     // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({
+    limit : '50mb',
+    // to support URL-encoded bodies
+    extended: true,
+    parameterLimit:50000
+}));
+
+//authentication dependencies
+var passport = require('passport');
+require('./config/passport')(passport);
+
+// Passport init
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', require('./routes/index'));
 
