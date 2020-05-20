@@ -1,36 +1,9 @@
 var Auth = module.exports;
-var passport = require("passport");
 var ExtractJWT = require("passport-jwt").ExtractJwt;
 var jwt = require('jsonwebtoken');
-var Key = require('../models/chave');
-var secretKey = require('./../config/app');
-var Calls = require('./api/logs')
-
-//WARNING: correr primeiro isLoggedInUser e só depois correr esta função como middleware
-//clearance se for um número, permite o acesso a todos os utilizadores com nivel igual ou superior; se for uma lista de números, apenas permite ao acesso aos níveis presentes nessa lista.
-Auth.checkLevel = function (clearance) {
-    return function(req, res, next) {
-        var havePermissions = false;
-
-        //Array
-        if (clearance instanceof Array) {
-            if (clearance.includes(req.user.level)) {
-                havePermissions = true;
-            }
-        //Number
-        } else {
-            if (req.user.level >= clearance) {
-                havePermissions = true;
-            }
-        }
-
-        if (havePermissions) {
-            return next();
-        } else {
-            return res.status(403).send('Não tem permissões suficientes para aceder');
-        }
-    }
-}
+var axios = require('axios');
+var secretKey = require('./../config/keys');
+var APIHost = require('../config/api').APIHost
 
 Auth.generateTokenUser = function (user, expiresIn) {
     return jwt.sign({id: user._id, level: user.level, entidade: user.entidade, email: user.email}, secretKey.userPrivateKey, {expiresIn: expiresIn, algorithm: 'RS256'});
@@ -49,58 +22,45 @@ Auth.verifyTokenKey = function (key) {
 }
 
 //verifica se está forneceu chave API. Em caso afirmativo verifica se é válido. Caso não tenha fornecido uma chave API verifica se forneceu antes um token.
-Auth.isLoggedInKey = async function (req, res, next) {
+Auth.isLoggedInKey = function (req, res) {
     var key = ExtractJWT.fromExtractors([
         ExtractJWT.fromUrlQueryParameter('apikey'),
         ExtractJWT.fromAuthHeaderWithScheme('apikey')
     ])(req)
 
     if(key){
-        await Key.find({key: key}, async function(err, resp){
-            if(err){
-                //throw err;
-                res.status(401).send('A sua chave API é inválida ou expirou.');
-            }else if(resp.length==0){
-                //A sua chave API não se encontra na base de dados
-                res.status(401).send('A sua chave API é inválida ou expirou.');
-            }else{
-                await Auth.verifyTokenKey(key, async function(err, decoded){
-                    if(err){
-                        res.status(401).send('A sua chave API é inválida ou expirou.');
+        axios.get(APIHost + "/chaves/" + key)
+            .then(response => {
+                var chave = response.data
+                try{
+                    var decoded = Auth.verifyTokenKey(key)
+                    if(chave.active==true){
+                        res.jsonp(decoded)
                     }else{
-                        if(resp[0].active==true){
-                            await Key.updateOne({_id: resp[0]._id}, {nCalls: resp[0].nCalls+1, lastUsed: Date.now()}, function(err, affected, resp2) {
-                                if(err){
-                                    res.status(500).send('Ocorreu um erro ao atualizar a Chave API.');
-                                }else{
-                                    res.locals.id = resp[0]._id
-                                    res.locals.idType = "Chave"
-                                    next()
-                                }
-                            })
-                        }else{
-                            res.status(403).send('A sua chave API foi desativada, por favor contacte os administradores do sistema.');
-                        }
+                        res.status(403).send('A sua chave API foi desativada, por favor contacte os administradores do sistema.');
                     }
-                });
-            }
-        })
+                }catch(err){
+                    res.status(401).send('A sua chave API é inválida ou expirou.');
+                }
+            })
+            .catch(err => res.status(401).send('A sua chave API é inválida ou expirou.'))
     }else{
-        return Auth.isLoggedInUser(req, res, next)
+        return Auth.isLoggedInUser(req, res, user => {
+            res.jsonp(user)
+        })
     }
 }
 
 //Verifica se um utilizador (token) está autenticado
-Auth.isLoggedInUser = function (req, res, next) {
-    passport.authenticate("jwt", { session: false }, function(err, user, info) {
-        if (err) { return res.status(401).send("Unauthorized") }
-        if (!user) { return res.status(401).send("Unauthorized") }
-        req.logIn(user, function(err) {
-            if (err) { return res.status(401).send("Unauthorized") }
+Auth.isLoggedInUser = function (req, res, callback) {
+    var key = ExtractJWT.fromExtractors([
+        ExtractJWT.fromUrlQueryParameter('token'),
+        ExtractJWT.fromAuthHeaderWithScheme('token')
+    ])(req)
 
-            res.locals.id = req.user.id
-            res.locals.idType = "User"
-            next()
-        })
-    })(req, res, next)
+    if(key){
+        callback(Auth.verifyTokenUser(key))
+    }else{
+        res.status(401).send("Unauthorized")
+    }
 }
