@@ -24,6 +24,8 @@ require('./config/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use('/user', require('./routes/user'));
+app.use('/apikey', require('./routes/apikey'));
 app.use('/', require('./routes/index'));
 
 // catch 404 and forward to error handler

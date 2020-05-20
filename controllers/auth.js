@@ -5,7 +5,6 @@ var jwt = require('jsonwebtoken');
 var Key = require('../models/chave');
 var secretKey = require('./../config/app');
 var Calls = require('./api/logs')
-var Parametros = require('./api/parametros')
 
 //WARNING: correr primeiro isLoggedInUser e só depois correr esta função como middleware
 //clearance se for um número, permite o acesso a todos os utilizadores com nivel igual ou superior; se for uma lista de números, apenas permite ao acesso aos níveis presentes nessa lista.
@@ -33,32 +32,20 @@ Auth.checkLevel = function (clearance) {
     }
 }
 
-Auth.generateTokenUserRecuperar = function (user) {
-    var token = jwt.sign({id: user._id, name: user.name, level: 0, entidade: user.entidade}, secretKey.userPrivateKey, {expiresIn: '30m', algorithm: 'RS256'});
-
-    return token
+Auth.generateTokenUser = function (user, expiresIn) {
+    return jwt.sign({id: user._id, level: user.level, entidade: user.entidade, email: user.email}, secretKey.userPrivateKey, {expiresIn: expiresIn, algorithm: 'RS256'});
 }
 
-Auth.generateTokenUser = function (user) {
-    const userExpires = Parametros.getParameter('userExpires').valor
-    var token = jwt.sign({id: user._id, level: user.level, entidade: user.entidade, email: user.email}, secretKey.userPrivateKey, {expiresIn: userExpires, algorithm: 'RS256'});
-
-    return token
+Auth.verifyTokenUser = function (key) {
+    return jwt.verify(key, secretKey.userPublicKey, { algorithms: ['RS256'] })
 }
 
-Auth.verifyTokenUser = function (key, callback) {
-    return jwt.verify(key, secretKey.userPublicKey, { algorithms: ['RS256'] }, callback)
+Auth.generateTokenKey = function (chaveId, expiresIn) {
+    return jwt.sign({id: chaveId}, secretKey.apiPrivateKey, {expiresIn: expiresIn, algorithm: 'RS256'});
 }
 
-Auth.generateTokenKey = function (chaveId) {
-    const keyExpires = Parametros.getParameter('keyExpires').valor
-    var token = jwt.sign({id: chaveId}, secretKey.apiPrivateKey, {expiresIn: keyExpires, algorithm: 'RS256'});
-
-    return token
-}
-
-Auth.verifyTokenKey = function (key, callback) {
-    return jwt.verify(key, secretKey.apiPublicKey, { algorithms: ['RS256'] }, callback)
+Auth.verifyTokenKey = function (key) {
+    return jwt.verify(key, secretKey.apiPublicKey, { algorithms: ['RS256'] })
 }
 
 //verifica se está forneceu chave API. Em caso afirmativo verifica se é válido. Caso não tenha fornecido uma chave API verifica se forneceu antes um token.
