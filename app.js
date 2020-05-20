@@ -8,21 +8,13 @@ app.use(logger('dev'));
 
 //body parser for post requests
 var bodyParser = require('body-parser')
-app.use(bodyParser.json({limit: '50mb'}));                     // to support JSON-encoded bodies
+app.use(bodyParser.json({limit: '50mb'})); // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({
     limit : '50mb',
     // to support URL-encoded bodies
     extended: true,
     parameterLimit:50000
 }));
-
-//authentication dependencies
-var passport = require('passport');
-require('./config/passport')(passport);
-
-// Passport init
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.use('/user', require('./routes/user'));
 app.use('/apikey', require('./routes/apikey'));
@@ -40,8 +32,7 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+  res.status(err.status || 500).send(err.message);
 });
 
 module.exports = app;

@@ -4,20 +4,22 @@ var router = express.Router();
 var Auth = require('../controllers/auth')
 var { match } = require('path-to-regexp')
 const routePermissions = require('../config/permissions')
-
+const api_version = require('../config/vars').APIVersion
 
 function getPermissions(method, path){
     var ret = null
 
     if(method in routePermissions){
-        for(route in routePermissions[method] && ret == null){
-            const match = match(route, {
+        for(const route of Object.keys(routePermissions[method])){
+            r = route.replace("{api_version}", api_version)
+            const matchF = match(r, {
                 encode: encodeURI,
                 decode: decodeURIComponent
             })
 
-            if(match){
+            if(matchF(path)){
                 ret = routePermissions[method][route]
+                break
             }
         }
     }

@@ -3,7 +3,7 @@ var ExtractJWT = require("passport-jwt").ExtractJwt;
 var jwt = require('jsonwebtoken');
 var axios = require('axios');
 var secretKey = require('./../config/keys');
-var APIHost = require('../config/api').APIHost
+var APIHost = require('../config/vars').APIHost
 
 Auth.generateTokenUser = function (user, expiresIn) {
     return jwt.sign({id: user._id, level: user.level, entidade: user.entidade, email: user.email}, secretKey.userPrivateKey, {expiresIn: expiresIn, algorithm: 'RS256'});
