@@ -57,7 +57,7 @@ curl -H "Content-Type: application/json" -d '{
 ```
 
 Resposta:
-```
+```json
 {
     "id":"5e2adcfdc38aef5caa90efc7",
     "level":7,
@@ -104,7 +104,7 @@ curl -H "Content-Type: application/json" -d '{
 ```
 
 Resposta:
-```
+```json
 {
     token: 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMmFkY2ZkYzM4YWVmNWNhYTkwZWZjNyIsImxldmVsIjo3LCJlbnRpZGFkZSI6ImVudF9BM0VTIiwiZW1haWwiOiJqY20zMDBAbGl2ZS5jb20ucHQiLCJpYXQiOjE1OTAwNTcyMTIsImV4cCI6MTU5MDA4NjAxMn0.jHWRYJctQgFzJJB4e-NMFVocDDCecyVH8_Vb4GUVyaAjR97MKoC8AcnuVbhPezh5kV9_a4YIlH9fqmyIHEIx1mGEQLUTaqRxeOu7EOHFGdeQWTZjA1qhmMM3iKVMApGnNHrex_Okge68limWJ-cInvdKwHa53E-RYPh2Ym-tMNxtGm9zhSDtCq0il5gkGCPOatFynMTKEPU-YMbg-vEJBmi39W1sElm9DfgWR1UPC7kTZ_Dg0q3-9h2G-MaL-dBMInx-LI2OYNIhSvfvy7x-290_BZJP6B7KrNQH-rQHhNPAFgQip-kR_tuWwEekSBlTIDQKxxy_biRH-Pcle621CQ'
 }
@@ -137,7 +137,7 @@ curl -H "Content-Type: application/json" -d '{
 ```
 
 Resposta:
-```
+```json
 {
     id: '5e2adcfdc38aef5caa90efc7',
     level: 7,
@@ -179,7 +179,7 @@ curl -H "Content-Type: application/json" -d '{
 ```
 
 Resposta:
-```
+```json
 {
     token: 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMmFkY2ZkYzM4YWVmNWNhYTkwZWZjNyIsImxldmVsIjo3LCJlbnRpZGFkZSI6ImVudF9BM0VTIiwiZW1haWwiOiJqY20zMDBAbGl2ZS5jb20ucHQiLCJpYXQiOjE1OTAwNTcyMTIsImV4cCI6MTU5MDA4NjAxMn0.jHWRYJctQgFzJJB4e-NMFVocDDCecyVH8_Vb4GUVyaAjR97MKoC8AcnuVbhPezh5kV9_a4YIlH9fqmyIHEIx1mGEQLUTaqRxeOu7EOHFGdeQWTZjA1qhmMM3iKVMApGnNHrex_Okge68limWJ-cInvdKwHa53E-RYPh2Ym-tMNxtGm9zhSDtCq0il5gkGCPOatFynMTKEPU-YMbg-vEJBmi39W1sElm9DfgWR1UPC7kTZ_Dg0q3-9h2G-MaL-dBMInx-LI2OYNIhSvfvy7x-290_BZJP6B7KrNQH-rQHhNPAFgQip-kR_tuWwEekSBlTIDQKxxy_biRH-Pcle621CQ'
 }
@@ -190,7 +190,7 @@ Resposta:
 <summary>Verificar o JWT de uma Chave API</summary>
 
 ```http
-POST /user/verify
+POST /apikey/verify
 ```
 | Parâmetro | Tipo | Local | Descrição |
 | :--- | :--- | :--- | :--- |
@@ -208,11 +208,11 @@ Pedido:
 ```
 curl -H "Content-Type: application/json" -d '{
   "key": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMmFkY2ZkYzM4YWVmNWNhYTkwZWZjNyIsImxldmVsIjo3LCJlbnRpZGFkZSI6ImVudF9BM0VTIiwiZW1haWwiOiJqY20zMDBAbGl2ZS5jb20ucHQiLCJpYXQiOjE1OTAwNTcyMTIsImV4cCI6MTU5MDA4NjAxMn0.jHWRYJctQgFzJJB4e-NMFVocDDCecyVH8_Vb4GUVyaAjR97MKoC8AcnuVbhPezh5kV9_a4YIlH9fqmyIHEIx1mGEQLUTaqRxeOu7EOHFGdeQWTZjA1qhmMM3iKVMApGnNHrex_Okge68limWJ-cInvdKwHa53E-RYPh2Ym-tMNxtGm9zhSDtCq0il5gkGCPOatFynMTKEPU-YMbg-vEJBmi39W1sElm9DfgWR1UPC7kTZ_Dg0q3-9h2G-MaL-dBMInx-LI2OYNIhSvfvy7x-290_BZJP6B7KrNQH-rQHhNPAFgQip-kR_tuWwEekSBlTIDQKxxy_biRH-Pcle621CQ"
-}' http://localhost:7778/user/verify
+}' http://localhost:7778/apikey/verify
 ```
 
 Resposta:
-```
+```json
 {
     id: '5e2adcfdc38aef5caa90efc7'
 }
