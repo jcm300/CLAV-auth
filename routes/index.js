@@ -12,7 +12,7 @@ function getPermissions(method, path){
     if(method in routePermissions){
         for(const route of Object.keys(routePermissions[method])){
             //troca a env pela versão da API
-            r = route.replace("{api_version}", api_version)
+            var r = route.replace("{api_version}", api_version)
             //remove o '/' se estiver presente no fim da rota
             r = r.replace(/\/$/, "")
 
@@ -45,7 +45,7 @@ router.post('/auth', (req, res) => {
     req.query = req.body.query
     req.headers = req.body.headers
 
-    if(permissions){
+    if(permissions != null){
         if(permissions instanceof Array){
             Auth.isLoggedInUser(req, res, user => {
                 if (permissions.includes(user.level)) {
