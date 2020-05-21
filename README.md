@@ -21,19 +21,19 @@ POST /auth
 ```
 | Parâmetro | Tipo | Local | Descrição |
 | :--- | :--- | :--- | :--- |
-| `method` | `string` (GET, POST, PUT, DELETE, PATCH) | body | **Required**. Método/Verbo do pedido. |
+| `method` | `string` (`GET`, `POST`, `PUT`, `DELETE`, `PATCH`) | body | **Required**. Método/Verbo do pedido. |
 | `path` | `string` | body | **Required**. Caminho (sem querystring) do pedido. |
 | `query` | `object` | body | **Required**. Querystring do pedido. |
 | `headers` | `object` | body | **Required**. Cabeçalhos do pedido. |
 
 Resposta:
 
-- 200: Pode realizar o pedido (possui autenticação e autorização). No body da resposta envia o JWT descodificado e adiciona um campo idType (com valores possíveis User ou Chave)
-- 401: Não tem autenticação para realizar o pedido
-- 403: Não tem autorização para realizar o pedido
-- 404: A rota (path) do pedido não existe
-- 422: Parâmetros em falta/incorretos
-- 500: Erro interno
+- `200`: Pode realizar o pedido (possui autenticação e autorização). No body da resposta envia o JWT descodificado e adiciona um campo `idType` (com valores possíveis `User` ou `Chave`)
+- `401`: Não tem autenticação para realizar o pedido
+- `403`: Não tem autorização para realizar o pedido
+- `404`: A rota (path) do pedido não existe
+- `422`: Parâmetros em falta/incorretos
+- `500`: Erro interno
 
 📄 **Exemplo de uso**
 
@@ -79,13 +79,13 @@ POST /user/sign
 | Parâmetro | Tipo | Local | Descrição |
 | :--- | :--- | :--- | :--- |
 | `user` | `object` | body | **Required**. Dados do utilizador. |
-| `expiresIn` | `string` (`^\d+(ms|s|m|h|d|y)$`) | body | **Required**. Duração do JWT. |
+| `expiresIn` | `string` (`^\d+(ms\|s\|m\|h\|d\|y)$`) | body | **Required**. Duração do JWT. |
 
 Resposta:
 
-- 200: Devolve o JWT gerado
-- 422: Parâmetros em falta/incorretos
-- 500: Erro interno
+- `200`: Devolve o JWT gerado
+- `422`: Parâmetros em falta/incorretos
+- `500`: Erro interno
 
 📄 **Exemplo de uso**
 
@@ -123,9 +123,9 @@ POST /user/verify
 
 Resposta:
 
-- 200: Devolve o JWT descodificado
-- 422: Parâmetros em falta/incorretos
-- 500: Erro interno ou JWT inválido/expirado
+- `200`: Devolve o JWT descodificado
+- `422`: Parâmetros em falta/incorretos
+- `500`: Erro interno ou JWT inválido/expirado
 
 📄 **Exemplo de uso**
 
@@ -158,13 +158,13 @@ POST /apikey/sign
 | Parâmetro | Tipo | Local | Descrição |
 | :--- | :--- | :--- | :--- |
 | `apikey` | `object` | body | **Required**. Dados da Chave API. |
-| `expiresIn` | `string` (`^\d+(ms|s|m|h|d|y)$`) | body | **Required**. Duração do JWT. |
+| `expiresIn` | `string` (`^\d+(ms\|s\|m\|h\|d\|y)$`) | body | **Required**. Duração do JWT. |
 
 Resposta:
 
-- 200: Devolve o JWT gerado
-- 422: Parâmetros em falta/incorretos
-- 500: Erro interno
+- `200`: Devolve o JWT gerado
+- `422`: Parâmetros em falta/incorretos
+- `500`: Erro interno
 
 📄 **Exemplo de uso**
 
@@ -198,9 +198,9 @@ POST /user/verify
 
 Resposta:
 
-- 200: Devolve o JWT descodificado
-- 422: Parâmetros em falta/incorretos
-- 500: Erro interno ou JWT inválido/expirado
+- `200`: Devolve o JWT descodificado
+- `422`: Parâmetros em falta/incorretos
+- `500`: Erro interno ou JWT inválido/expirado
 
 📄 **Exemplo de uso**
 
