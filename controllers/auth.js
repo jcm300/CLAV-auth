@@ -6,15 +6,15 @@ var secretKey = require('./../config/keys');
 var APIHost = require('../config/vars').APIHost
 
 Auth.generateTokenUser = function (user, expiresIn) {
-    return jwt.sign({id: user._id, level: user.level, entidade: user.entidade, email: user.email}, secretKey.userPrivateKey, {expiresIn: expiresIn, algorithm: 'RS256'});
+    return jwt.sign({id: user.id, level: user.level, entidade: user.entidade, email: user.email}, secretKey.userPrivateKey, {expiresIn: expiresIn, algorithm: 'RS256'});
 }
 
 Auth.verifyTokenUser = function (key) {
     return jwt.verify(key, secretKey.userPublicKey, { algorithms: ['RS256'] })
 }
 
-Auth.generateTokenKey = function (chaveId, expiresIn) {
-    return jwt.sign({id: chaveId}, secretKey.apiPrivateKey, {expiresIn: expiresIn, algorithm: 'RS256'});
+Auth.generateTokenKey = function (apikey, expiresIn) {
+    return jwt.sign({id: apikey.id}, secretKey.apiPrivateKey, {expiresIn: expiresIn, algorithm: 'RS256'});
 }
 
 Auth.verifyTokenKey = function (key) {
@@ -35,6 +35,7 @@ Auth.isLoggedInKey = function (req, res) {
                 try{
                     var decoded = Auth.verifyTokenKey(key)
                     if(chave.active==true){
+                        decoded.idType = "Chave"
                         res.jsonp(decoded)
                     }else{
                         res.status(403).send('A sua chave API foi desativada, por favor contacte os administradores do sistema.');
@@ -59,7 +60,13 @@ Auth.isLoggedInUser = function (req, res, callback) {
     ])(req)
 
     if(key){
-        callback(Auth.verifyTokenUser(key))
+        try{
+            var decoded = Auth.verifyTokenUser(key)
+            decoded.idType = "User"
+            callback(decoded)
+        }catch(err){
+            res.status(401).send("Unauthorized")
+        }
     }else{
         res.status(401).send("Unauthorized")
     }

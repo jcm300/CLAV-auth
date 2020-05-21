@@ -11,7 +11,11 @@ function getPermissions(method, path){
 
     if(method in routePermissions){
         for(const route of Object.keys(routePermissions[method])){
+            //troca a env pela versão da API
             r = route.replace("{api_version}", api_version)
+            //remove o '/' se estiver presente no fim da rota
+            r = r.replace(/\/$/, "")
+
             const matchF = match(r, {
                 encode: encodeURI,
                 decode: decodeURIComponent
@@ -29,6 +33,14 @@ function getPermissions(method, path){
 
 router.post('/auth', (req, res) => {
     const permissions = getPermissions(req.body.method, req.body.path)
+
+    var querystring = ""
+    var entries = Object.entries(req.body.query)
+
+    if(entries.length > 0){
+        querystring = "?" + entries.map(e => `${e[0]}=${e[1]}`).join("&")
+    }
+    req.url = req.body.path + querystring
 
     req.query = req.body.query
     req.headers = req.body.headers
