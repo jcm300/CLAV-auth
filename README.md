@@ -106,7 +106,7 @@ curl -H "Content-Type: application/json" -d '{
 Resposta:
 ```json
 {
-    token: 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMmFkY2ZkYzM4YWVmNWNhYTkwZWZjNyIsImxldmVsIjo3LCJlbnRpZGFkZSI6ImVudF9BM0VTIiwiZW1haWwiOiJqY20zMDBAbGl2ZS5jb20ucHQiLCJpYXQiOjE1OTAwNTcyMTIsImV4cCI6MTU5MDA4NjAxMn0.jHWRYJctQgFzJJB4e-NMFVocDDCecyVH8_Vb4GUVyaAjR97MKoC8AcnuVbhPezh5kV9_a4YIlH9fqmyIHEIx1mGEQLUTaqRxeOu7EOHFGdeQWTZjA1qhmMM3iKVMApGnNHrex_Okge68limWJ-cInvdKwHa53E-RYPh2Ym-tMNxtGm9zhSDtCq0il5gkGCPOatFynMTKEPU-YMbg-vEJBmi39W1sElm9DfgWR1UPC7kTZ_Dg0q3-9h2G-MaL-dBMInx-LI2OYNIhSvfvy7x-290_BZJP6B7KrNQH-rQHhNPAFgQip-kR_tuWwEekSBlTIDQKxxy_biRH-Pcle621CQ'
+    "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMmFkY2ZkYzM4YWVmNWNhYTkwZWZjNyIsImxldmVsIjo3LCJlbnRpZGFkZSI6ImVudF9BM0VTIiwiZW1haWwiOiJqY20zMDBAbGl2ZS5jb20ucHQiLCJpYXQiOjE1OTAwNTcyMTIsImV4cCI6MTU5MDA4NjAxMn0.jHWRYJctQgFzJJB4e-NMFVocDDCecyVH8_Vb4GUVyaAjR97MKoC8AcnuVbhPezh5kV9_a4YIlH9fqmyIHEIx1mGEQLUTaqRxeOu7EOHFGdeQWTZjA1qhmMM3iKVMApGnNHrex_Okge68limWJ-cInvdKwHa53E-RYPh2Ym-tMNxtGm9zhSDtCq0il5gkGCPOatFynMTKEPU-YMbg-vEJBmi39W1sElm9DfgWR1UPC7kTZ_Dg0q3-9h2G-MaL-dBMInx-LI2OYNIhSvfvy7x-290_BZJP6B7KrNQH-rQHhNPAFgQip-kR_tuWwEekSBlTIDQKxxy_biRH-Pcle621CQ"
 }
 ```
 </details>
@@ -139,12 +139,12 @@ curl -H "Content-Type: application/json" -d '{
 Resposta:
 ```json
 {
-    id: '5e2adcfdc38aef5caa90efc7',
-    level: 7,
-    entidade: 'ent_A3ES',
-    email: 'jcm300@live.com.pt',
-    iat: 1590057212,
-    exp: 1590086012
+    "id": "5e2adcfdc38aef5caa90efc7",
+    "level": 7,
+    "entidade": "ent_A3ES",
+    "email": "jcm300@live.com.pt",
+    "iat": 1590057212,
+    "exp": 1590086012
 }
 ```
 </details>
@@ -181,7 +181,7 @@ curl -H "Content-Type: application/json" -d '{
 Resposta:
 ```json
 {
-    token: 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMmFkY2ZkYzM4YWVmNWNhYTkwZWZjNyIsImxldmVsIjo3LCJlbnRpZGFkZSI6ImVudF9BM0VTIiwiZW1haWwiOiJqY20zMDBAbGl2ZS5jb20ucHQiLCJpYXQiOjE1OTAwNTcyMTIsImV4cCI6MTU5MDA4NjAxMn0.jHWRYJctQgFzJJB4e-NMFVocDDCecyVH8_Vb4GUVyaAjR97MKoC8AcnuVbhPezh5kV9_a4YIlH9fqmyIHEIx1mGEQLUTaqRxeOu7EOHFGdeQWTZjA1qhmMM3iKVMApGnNHrex_Okge68limWJ-cInvdKwHa53E-RYPh2Ym-tMNxtGm9zhSDtCq0il5gkGCPOatFynMTKEPU-YMbg-vEJBmi39W1sElm9DfgWR1UPC7kTZ_Dg0q3-9h2G-MaL-dBMInx-LI2OYNIhSvfvy7x-290_BZJP6B7KrNQH-rQHhNPAFgQip-kR_tuWwEekSBlTIDQKxxy_biRH-Pcle621CQ'
+    "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMmFkY2ZkYzM4YWVmNWNhYTkwZWZjNyIsImxldmVsIjo3LCJlbnRpZGFkZSI6ImVudF9BM0VTIiwiZW1haWwiOiJqY20zMDBAbGl2ZS5jb20ucHQiLCJpYXQiOjE1OTAwNTcyMTIsImV4cCI6MTU5MDA4NjAxMn0.jHWRYJctQgFzJJB4e-NMFVocDDCecyVH8_Vb4GUVyaAjR97MKoC8AcnuVbhPezh5kV9_a4YIlH9fqmyIHEIx1mGEQLUTaqRxeOu7EOHFGdeQWTZjA1qhmMM3iKVMApGnNHrex_Okge68limWJ-cInvdKwHa53E-RYPh2Ym-tMNxtGm9zhSDtCq0il5gkGCPOatFynMTKEPU-YMbg-vEJBmi39W1sElm9DfgWR1UPC7kTZ_Dg0q3-9h2G-MaL-dBMInx-LI2OYNIhSvfvy7x-290_BZJP6B7KrNQH-rQHhNPAFgQip-kR_tuWwEekSBlTIDQKxxy_biRH-Pcle621CQ"
 }
 ```
 </details>
@@ -214,7 +214,7 @@ curl -H "Content-Type: application/json" -d '{
 Resposta:
 ```json
 {
-    id: '5e2adcfdc38aef5caa90efc7'
+    "id": "5e2adcfdc38aef5caa90efc7"
 }
 ```
 </details>
