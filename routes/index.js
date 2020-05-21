@@ -6,6 +6,9 @@ var { match } = require('path-to-regexp')
 const routePermissions = require('../config/permissions')
 const api_version = require('../config/vars').APIVersion
 
+const { validationResult } = require('express-validator')
+const { existe, estaEm, vcVerbo, eObjeto } = require('./validation')
+
 function getPermissions(method, path){
     var ret = null
 
@@ -31,7 +34,24 @@ function getPermissions(method, path){
     return ret
 }
 
-router.post('/auth', (req, res) => {
+router.post('/auth', [
+    estaEm('body', 'method', vcVerbo),
+    existe('body', 'path')
+        .bail()
+        .isURL({
+            require_tld: false,
+            require_host: false,
+            require_valid_protocol: false
+        })
+        .withMessage("Não é um caminho válido"),
+    eObjeto('body', 'query'),
+    eObjeto('body', 'headers')
+], (req, res) => {
+    const errors = validationResult(req)
+    if(!errors.isEmpty()){
+        return res.status(422).jsonp(errors.array())
+    }
+
     const permissions = getPermissions(req.body.method, req.body.path)
 
     var querystring = ""

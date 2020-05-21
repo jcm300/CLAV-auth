@@ -3,7 +3,18 @@ var router = express.Router();
 
 var Auth = require('../controllers/auth')
 
-router.post('/sign', (req, res) => {
+const { validationResult } = require('express-validator')
+const { eJWT, eExpiresTime, eObjeto } = require('./validation')
+
+router.post('/sign', [
+    eObjeto('body', 'user'),
+    eExpiresTime('body', 'expiresIn')
+], (req, res) => {
+    const errors = validationResult(req)
+    if(!errors.isEmpty()){
+        return res.status(422).jsonp(errors.array())
+    }
+
     try{
         var token = Auth.generateTokenUser(req.body.user, req.body.expiresIn)
         res.jsonp({ token: token });
@@ -12,7 +23,14 @@ router.post('/sign', (req, res) => {
     }
 });
 
-router.post('/verify', (req, res) => {
+router.post('/verify', [
+    eJWT('body', 'key')
+], (req, res) => {
+    const errors = validationResult(req)
+    if(!errors.isEmpty()){
+        return res.status(422).jsonp(errors.array())
+    }
+
     try{
         var decoded = Auth.verifyTokenUser(req.body.key)
         res.jsonp(decoded);
