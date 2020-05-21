@@ -49,6 +49,16 @@ module.exports.estaEm = function (location, field, list, ifF){
         .withMessage(msg)
 }
 
+module.exports.match = function(location, field, regex, ifF){
+    const msg = `Formato Inválido. Não respeita o regex: '${regex}'`
+    ifF = ifF || undefined
+
+    return module.exports.existe(location, field, ifF)
+        .bail()
+        .matches(new RegExp(regex))
+        .withMessage(msg)
+}
+
 module.exports.eObjeto = function (location, field, ifF){
     ifF = ifF || undefined
 
