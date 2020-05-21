@@ -1,11 +1,11 @@
 # CLAV-auth
 Serviço de Autenticação e de Autorização para a CLAV
 
-AVISO: Se usar este serviço em produção então deve gerar novos pares de chaves pública/privadas com um tamanho mínimo de 2048 bits. As chaves são guardadas em `./config/keys` onde uma chamasse `apikey` (`apikey` (privada) e `apikey.pub` (pública)) e a outra `userkey` (`userkey` (privada) e `userkey.pub` (pública)).
+**AVISO**: Se usar este serviço em produção então deve gerar novos pares de chaves pública/privadas com um tamanho mínimo de 2048 bits. As chaves são guardadas em `./config/keys` onde uma se chama `apikey` (`apikey` (privada) e `apikey.pub` (pública)) e a outra `userkey` (`userkey` (privada) e `userkey.pub` (pública)).
 
 ## Variáveis do serviço
 
-O serviço permite que sejam alteradas certas variáveis diretamente no código ou através de variáveis ambiente. Estas são:
+O serviço permite que sejam alterados certos parâmetros diretamente no código (`./config/vars.js`) ou através de variáveis ambiente. Estas variáveis ambiente são:
 
 - `PORT`: porta onde irá correr o serviço (default: `7778`)
 - `API_VERSION`: versão do servidor API que será protegido (default: `v2`)
