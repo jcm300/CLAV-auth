@@ -32,15 +32,19 @@ Auth.isLoggedInKey = function (req, res) {
         axios.get(APIHost + "/chaves/" + key)
             .then(response => {
                 var chave = response.data
-                try{
-                    var decoded = Auth.verifyTokenKey(key)
-                    if(chave.active==true){
-                        decoded.idType = "Chave"
-                        res.jsonp(decoded)
-                    }else{
-                        res.status(403).send('A sua chave API foi desativada, por favor contacte os administradores do sistema.');
+                if(chave){
+                    try{
+                        var decoded = Auth.verifyTokenKey(key)
+                        if(chave.active==true){
+                            decoded.idType = "Chave"
+                            res.jsonp(decoded)
+                        }else{
+                            res.status(403).send('A sua chave API foi desativada, por favor contacte os administradores do sistema.');
+                        }
+                    }catch(err){
+                        res.status(401).send('A sua chave API é inválida ou expirou.');
                     }
-                }catch(err){
+                }else{
                     res.status(401).send('A sua chave API é inválida ou expirou.');
                 }
             })
