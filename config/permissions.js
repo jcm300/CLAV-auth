@@ -155,7 +155,7 @@ module.exports = {
         "/{api_version}/travessia/": [1, 3, 3.5, 4, 5, 6, 7],
         //users
         "/{api_version}/users/:id": 1,
-        "/{api_version}/users/": 5,
+        "/{api_version}/users/": 3.5,
         //vocabularios
         "/{api_version}/vocabularios/:id": 0,
         "/{api_version}/vocabularios/": 0,
