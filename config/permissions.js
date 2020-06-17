@@ -122,6 +122,13 @@ module.exports = {
         //pendentes
         "/{api_version}/pendentes/:id": [1, 3, 3.5, 4, 5, 6, 7],
         "/{api_version}/pendentes/": [1, 3, 3.5, 4, 5, 6, 7],
+        //pgd
+        "/{api_version}/pgd/lc": 0,
+        "/{api_version}/pgd/:idPGD": 0,
+        "/{api_version}/pgd/": 0,
+        //rada
+        "/{api_version}/rada/:id": 4,
+        "/{api_version}/rada/": 4,
         //reload
         "/{api_version}/reload/cache": 7,
         //tabelasSelecao
@@ -192,6 +199,8 @@ module.exports = {
         "/{api_version}/pedidos/": [1, 3, 3.5, 4, 5, 6, 7],
         //pendentes
         "/{api_version}/pendentes": [1, 3, 3.5, 4, 5, 6, 7],
+        //rada
+        "/{api_version}/rada/": 4,
         //tabelasSelecao
         "/{api_version}/tabelasSelecao/importar": [1, 3, 3.5, 4, 5, 6, 7],
         //tipologias
