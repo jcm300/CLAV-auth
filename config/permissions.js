@@ -37,6 +37,10 @@ module.exports = {
         "/{api_version}/classes/:id/df": 0,
         "/{api_version}/classes/:id/": 0,
         "/{api_version}/classes/": 0,
+        //colaboracoes
+        "/{api_version}/colaboracoes/exportar": [4, 5, 6, 7],
+        "/{api_version}/colaboracoes/:id/": 0,
+        "/{api_version}/colaboracoes/": 0,
         //docs
         "/{api_version}/docs": -1,
         //documentacaoCientifica
@@ -107,6 +111,7 @@ module.exports = {
         "/{api_version}/notasAp/notaAp": 0,
         "/{api_version}/notasAp/": 0,
         //noticias
+        "/{api_version}/noticias/exportar": [4, 5, 6, 7],
         "/{api_version}/noticias/:id": 0,
         "/{api_version}/noticias/": 0,
         //ontologia
@@ -177,6 +182,9 @@ module.exports = {
         "/{api_version}/autosEliminacao/": [1, 3, 3.5, 4, 5, 6, 7],
         //chaves
         "/{api_version}/chaves/": -1,
+        //colaboracoes
+        "/{api_version}/colaboracoes/importar": [4, 5, 6, 7],
+        "/{api_version}/colaboracoes/": [4, 5, 6, 7],
         //documentacaoCientifica
         "/{api_version}/documentacaoCientifica/importar": [4, 5, 6, 7],
         "/{api_version}/documentacaoCientifica/": [4, 5, 6, 7],
@@ -191,6 +199,7 @@ module.exports = {
         //legislacao
         "/{api_version}/legislacao/": 4,
         //noticias
+        "/{api_version}/noticias/importar": [4, 5, 6, 7],
         "/{api_version}/noticias/": [4, 5, 6, 7],
         //ontologia
         "/{api_version}/ontologia": 7,
@@ -226,6 +235,8 @@ module.exports = {
         "/{api_version}/chaves/:id/desativar": 7,
         "/{api_version}/chaves/:id/ativar": 7,
         "/{api_version}/chaves/:id/atualizar": 7,
+        //colaboracoes
+        "/{api_version}/colaboracoes/:id/": [4, 5, 6, 7],
         //documentacaoCientifica
         "/{api_version}/documentacaoCientifica/:id": [4, 5, 6, 7],
         //documentacaoApoio
@@ -260,6 +271,8 @@ module.exports = {
         "/{api_version}/auth/": 7,
         //chaves
         "/{api_version}/chaves/:id": 7,
+        //colaboracoes
+        "/{api_version}/colaboracoes/:id/": [4, 5, 6, 7],
         //documentacaoCientifica
         "/{api_version}/documentacaoCientifica/:id": [4, 5, 6, 7],
         //documentacaoApoio
