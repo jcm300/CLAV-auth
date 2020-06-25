@@ -52,6 +52,7 @@ module.exports = {
         //documentacaoApoio
         "/{api_version}/documentacaoApoio/formulario": 0,
         "/{api_version}/documentacaoApoio/classes": 0,
+        "/{api_version}/documentacaoApoio/exportar": [4, 5, 6, 7],
         "/{api_version}/documentacaoApoio/:id/entradas/:idEnt/elementos/:idElem/ficheiro": 0,
         "/{api_version}/documentacaoApoio/:id/entradas/:idEnt/elementos/:idElem/": 0,
         "/{api_version}/documentacaoApoio/:id/entradas/:idEnt/elementos/": 0,
@@ -189,6 +190,7 @@ module.exports = {
         "/{api_version}/documentacaoCientifica/importar": [4, 5, 6, 7],
         "/{api_version}/documentacaoCientifica/": [4, 5, 6, 7],
         //documentacaoApoio
+        "/{api_version}/documentacaoApoio/importar": [4, 5, 6, 7],
         "/{api_version}/documentacaoApoio/:id/entradas/:idEnt/": [4, 5, 6, 7],
         "/{api_version}/documentacaoApoio/:id/": [4, 5, 6, 7],
         "/{api_version}/documentacaoApoio/": [4, 5, 6, 7],
