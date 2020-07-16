@@ -1,7 +1,7 @@
 # CLAV-auth
 Serviço de Autenticação e de Autorização para a CLAV
 
-**AVISO**: Se usar este serviço em produção então deve gerar novos pares de chaves pública/privadas com um tamanho mínimo de 2048 bits. As chaves são guardadas em `./config/keys` onde uma se chama `apikey` (`apikey` (privada) e `apikey.pub` (pública)) e a outra `userkey` (`userkey` (privada) e `userkey.pub` (pública)).
+**AVISO**: Se usar este serviço em produção então deve gerar novos pares de chaves pública/privadas com um tamanho mínimo de 2048 bits. As chaves são guardadas em `./config/keys` onde uma se chama `apiKey` (`apiKey` (privada) e `apiKey.pub` (pública)) e a outra `userKey` (`userKey` (privada) e `userKey.pub` (pública)).
 
 ## Variáveis do serviço
 
