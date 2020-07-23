@@ -102,7 +102,7 @@ module.exports = {
         "/{api_version}/legislacao/:id/": 0,
         "/{api_version}/legislacao/": 0,
         //logs
-        "/{api_version}/logs/verbo": 6, 
+        "/{api_version}/logs/:verbo": 6, 
         "/{api_version}/logs/": 6 ,
         //logsAgregados
         "/{api_version}/logsAgregados/rotas": 6, 
