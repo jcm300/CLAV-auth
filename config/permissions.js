@@ -71,6 +71,8 @@ module.exports = {
         //exemplosNotasAp
         "/{api_version}/exemplosNotasAp/exemploNotaAp": 0,
         "/{api_version}/exemplosNotasAp/": 0,
+        //ficheirosEstaticos
+        "/{api_version}/ficheirosEstaticos/": 0,
         //indicadores
         "/{api_version}/indicadores/classesN4": 3.5,
         "/{api_version}/indicadores/classesN3": 3.5,
