@@ -17,7 +17,7 @@ module.exports = {
         //chaves
         "/{api_version}/chaves/clavToken": -1,
         "/{api_version}/chaves/:id": 7,
-        "/{api_version}/chaves/": 6,
+        "/{api_version}/chaves/": 7,
         //classes
         "/{api_version}/classes/titulo": 0,
         "/{api_version}/classes/codigo": 0,
@@ -38,21 +38,21 @@ module.exports = {
         "/{api_version}/classes/:id/": 0,
         "/{api_version}/classes/": 0,
         //colaboracoes
-        "/{api_version}/colaboracoes/exportar": [4, 5, 6, 7],
+        "/{api_version}/colaboracoes/exportar": [3.5, 4, 5, 6, 7],
         "/{api_version}/colaboracoes/:id/": 0,
         "/{api_version}/colaboracoes/": 0,
         //docs
         "/{api_version}/docs": -1,
         //documentacaoCientifica
         "/{api_version}/documentacaoCientifica/classes": 0,
-        "/{api_version}/documentacaoCientifica/exportar": [4, 5, 6, 7],
+        "/{api_version}/documentacaoCientifica/exportar": [3.5, 4, 5, 6, 7],
         "/{api_version}/documentacaoCientifica/:id/ficheiro": 0,
         "/{api_version}/documentacaoCientifica/:id/": 0,
         "/{api_version}/documentacaoCientifica/": 0,
         //documentacaoApoio
         "/{api_version}/documentacaoApoio/formulario": 0,
         "/{api_version}/documentacaoApoio/classes": 0,
-        "/{api_version}/documentacaoApoio/exportar": [4, 5, 6, 7],
+        "/{api_version}/documentacaoApoio/exportar": [3.5, 4, 5, 6, 7],
         "/{api_version}/documentacaoApoio/:id/entradas/:idEnt/elementos/:idElem/ficheiro": 0,
         "/{api_version}/documentacaoApoio/:id/entradas/:idEnt/elementos/:idElem/": 0,
         "/{api_version}/documentacaoApoio/:id/entradas/:idEnt/elementos/": 0,
@@ -74,24 +74,24 @@ module.exports = {
         //ficheirosEstaticos
         "/{api_version}/ficheirosEstaticos/": 0,
         //indicadores
-        "/{api_version}/indicadores/classesN4": 3.5,
-        "/{api_version}/indicadores/classesN3": 3.5,
-        "/{api_version}/indicadores/classesN2": 3.5,
-        "/{api_version}/indicadores/classesN1": 3.5,
-        "/{api_version}/indicadores/classes": 3.5,
-        "/{api_version}/indicadores/entidadesAtivas": 3.5,
-        "/{api_version}/indicadores/entidades": 3.5,
-        "/{api_version}/indicadores/tipologias": 3.5,
-        "/{api_version}/indicadores/legVigor": 3.5,
-        "/{api_version}/indicadores/leg": 3.5,
-        "/{api_version}/indicadores/relstats": 3.5,
-        "/{api_version}/indicadores/critstats": 3.5,
-        "/{api_version}/indicadores/dfstats": 3.5,
-        "/{api_version}/indicadores/relacoes/:relacao": 3.5,
-        "/{api_version}/indicadores/df/:df": 3.5,
-        "/{api_version}/indicadores/critJust/:critJust": 3.5,
-        "/{api_version}/indicadores/critJust/": 3.5,
-        "/{api_version}/indicadores/tabela": 3.5,
+        "/{api_version}/indicadores/classesN4": 3,
+        "/{api_version}/indicadores/classesN3": 3,
+        "/{api_version}/indicadores/classesN2": 3,
+        "/{api_version}/indicadores/classesN1": 3,
+        "/{api_version}/indicadores/classes": 3,
+        "/{api_version}/indicadores/entidadesAtivas": 3,
+        "/{api_version}/indicadores/entidades": 3,
+        "/{api_version}/indicadores/tipologias": 3,
+        "/{api_version}/indicadores/legVigor": 3,
+        "/{api_version}/indicadores/leg": 3,
+        "/{api_version}/indicadores/relstats": 3,
+        "/{api_version}/indicadores/critstats": 3,
+        "/{api_version}/indicadores/dfstats": 3,
+        "/{api_version}/indicadores/relacoes/:relacao": 3,
+        "/{api_version}/indicadores/df/:df": 3,
+        "/{api_version}/indicadores/critJust/:critJust": 3,
+        "/{api_version}/indicadores/critJust/": 3,
+        "/{api_version}/indicadores/tabela": 3,
         //indicePesquisa
         "/{api_version}/indicePesquisa": 0,
         //invariantes
@@ -114,7 +114,7 @@ module.exports = {
         "/{api_version}/notasAp/notaAp": 0,
         "/{api_version}/notasAp/": 0,
         //noticias
-        "/{api_version}/noticias/exportar": [4, 5, 6, 7],
+        "/{api_version}/noticias/exportar": [3.5, 4, 5, 6, 7],
         "/{api_version}/noticias/:id": 0,
         "/{api_version}/noticias/": 0,
         //ontologia
@@ -137,8 +137,8 @@ module.exports = {
         "/{api_version}/pgd/:idPGD": 0,
         "/{api_version}/pgd/": 0,
         //rada
-        "/{api_version}/rada/:id": 4,
-        "/{api_version}/rada/": 4,
+        "/{api_version}/rada/:id": [1, 3, 3.5, 4, 5, 6, 7],
+        "/{api_version}/rada/": [1, 3, 3.5, 4, 5, 6, 7],
         //reload
         "/{api_version}/reload/cache": 7,
         //tabelasSelecao
@@ -184,20 +184,20 @@ module.exports = {
         "/{api_version}/auth/adicionar": 0,
         //autosEliminacao
         "/{api_version}/autosEliminacao/importar": [1, 3, 3.5, 4, 5, 6, 7],
-        "/{api_version}/autosEliminacao/": [1, 3, 3.5, 4, 5, 6, 7],
+        "/{api_version}/autosEliminacao/": [5, 6, 7],
         //chaves
         "/{api_version}/chaves/": -1,
         //colaboracoes
-        "/{api_version}/colaboracoes/importar": [4, 5, 6, 7],
-        "/{api_version}/colaboracoes/": [4, 5, 6, 7],
+        "/{api_version}/colaboracoes/importar": [3.5, 4, 5, 6, 7],
+        "/{api_version}/colaboracoes/": [3.5, 4, 5, 6, 7],
         //documentacaoCientifica
-        "/{api_version}/documentacaoCientifica/importar": [4, 5, 6, 7],
-        "/{api_version}/documentacaoCientifica/": [4, 5, 6, 7],
+        "/{api_version}/documentacaoCientifica/importar": [3.5, 4, 5, 6, 7],
+        "/{api_version}/documentacaoCientifica/": [3.5, 4, 5, 6, 7],
         //documentacaoApoio
-        "/{api_version}/documentacaoApoio/importar": [4, 5, 6, 7],
-        "/{api_version}/documentacaoApoio/:id/entradas/:idEnt/": [4, 5, 6, 7],
-        "/{api_version}/documentacaoApoio/:id/": [4, 5, 6, 7],
-        "/{api_version}/documentacaoApoio/": [4, 5, 6, 7],
+        "/{api_version}/documentacaoApoio/importar": [3.5, 4, 5, 6, 7],
+        "/{api_version}/documentacaoApoio/:id/entradas/:idEnt/": [3.5, 4, 5, 6, 7],
+        "/{api_version}/documentacaoApoio/:id/": [3.5, 4, 5, 6, 7],
+        "/{api_version}/documentacaoApoio/": [3.5, 4, 5, 6, 7],
         //entidades
         "/{api_version}/entidades": 4,
         //invariantes
@@ -205,19 +205,20 @@ module.exports = {
         //legislacao
         "/{api_version}/legislacao/": 4,
         //noticias
-        "/{api_version}/noticias/importar": [4, 5, 6, 7],
-        "/{api_version}/noticias/": [4, 5, 6, 7],
+        "/{api_version}/noticias/importar": [3.5, 4, 5, 6, 7],
+        "/{api_version}/noticias/": [3.5, 4, 5, 6, 7],
         //ontologia
         "/{api_version}/ontologia": 7,
         //pedidos
-        "/{api_version}/pedidos/:codigo/distribuicao": [1, 3, 3.5, 4, 5, 6, 7],
+        "/{api_version}/pedidos/:codigo/distribuicao": [3.5, 4, 5, 6, 7],
         "/{api_version}/pedidos/": [1, 3, 3.5, 4, 5, 6, 7],
         //pendentes
         "/{api_version}/pendentes": [1, 3, 3.5, 4, 5, 6, 7],
         //rada
-        "/{api_version}/rada/": 4,
+        "/{api_version}/rada/": 5,
         //tabelasSelecao
         "/{api_version}/tabelasSelecao/importar": [1, 3, 3.5, 4, 5, 6, 7],
+        "/{api_version}/tabelasSelecao/": [5, 6, 7],
         //tipologias
         "/{api_version}/tipologias": 4,
         //travessiaDeSintese
@@ -228,12 +229,12 @@ module.exports = {
         "/{api_version}/users/login": -1,
         "/{api_version}/users/callback": -1,
         "/{api_version}/users/recuperar": -1,
-        "/{api_version}/users/registarParaEntidade": 5,
-        "/{api_version}/users/registarCC": 5,
-        "/{api_version}/users/registar": 5,
+        "/{api_version}/users/registarParaEntidade": 4,
+        "/{api_version}/users/registarCC": 4,
+        "/{api_version}/users/registar": 4,
         //vocabularios
-        "/{api_version}/vocabularios/termo/:idVC": [1, 3, 3.5, 4, 5, 6, 7],
-        "/{api_version}/vocabularios/": [1, 3, 3.5, 4, 5, 6, 7]
+        "/{api_version}/vocabularios/termo/:idVC": [4, 5, 6, 7],
+        "/{api_version}/vocabularios/": [4, 5, 6, 7]
     },
     PUT: {
         //chaves
@@ -242,35 +243,36 @@ module.exports = {
         "/{api_version}/chaves/:id/ativar": 7,
         "/{api_version}/chaves/:id/atualizar": 7,
         //colaboracoes
-        "/{api_version}/colaboracoes/:id/": [4, 5, 6, 7],
+        "/{api_version}/colaboracoes/:id/": [3.5, 4, 5, 6, 7],
         //documentacaoCientifica
-        "/{api_version}/documentacaoCientifica/:id": [4, 5, 6, 7],
+        "/{api_version}/documentacaoCientifica/:id": [3.5, 4, 5, 6, 7],
         //documentacaoApoio
-        "/{api_version}/documentacaoApoio/:id/entradas/:idEnt/elementos/:idElem/": [4, 5, 6, 7],
-        "/{api_version}/documentacaoApoio/:id/entradas/:idEnt/": [4, 5, 6, 7],
-        "/{api_version}/documentacaoApoio/:id/": [4, 5, 6, 7],
+        "/{api_version}/documentacaoApoio/:id/entradas/:idEnt/elementos/:idElem/": [3.5, 4, 5, 6, 7],
+        "/{api_version}/documentacaoApoio/:id/entradas/:idEnt/": [3.5, 4, 5, 6, 7],
+        "/{api_version}/documentacaoApoio/:id/": [3.5, 4, 5, 6, 7],
         //entidades
         "/{api_version}/entidades/:id/extinguir": 4,
         "/{api_version}/entidades/:id/": 4,
         //legislacao
+        "/{api_version}/legislacao/:id/revogar": 4,
         "/{api_version}/legislacao/:id": 4,
         //noticias
-        "/{api_version}/noticias/:id": [4, 5, 6, 7],
+        "/{api_version}/noticias/:id": [3.5, 4, 5, 6, 7],
         //parametros
         "/{api_version}/parametros/:parametro": 7,
         //pedidos
-        "/{api_version}/pedidos": [1, 3, 3.5, 4, 5, 6, 7],
+        "/{api_version}/pedidos": [3.5, 4, 5, 6, 7],
         //pendentes
         "/{api_version}/pendentes": [1, 3, 3.5, 4, 5, 6, 7],
         //tipologias
         "/{api_version}/tipologias/:id": 4,
         //users
-        "/{api_version}/users/:id/desativar": 5,
+        "/{api_version}/users/:id/desativar": 4,
         "/{api_version}/users/:id/nic": 7,
         "/{api_version}/users/:id/password": 1,
-        "/{api_version}/users/:id/": 5,
+        "/{api_version}/users/:id/": 4,
         //vocabularios
-        "/{api_version}/vocabularios/:id": [1, 3, 3.5, 4, 5, 6, 7]
+        "/{api_version}/vocabularios/:id": [4, 5, 6, 7]
     },
     DELETE: {
         //auth
@@ -278,19 +280,19 @@ module.exports = {
         //chaves
         "/{api_version}/chaves/:id": 7,
         //colaboracoes
-        "/{api_version}/colaboracoes/:id/": [4, 5, 6, 7],
+        "/{api_version}/colaboracoes/:id/": [3.5, 4, 5, 6, 7],
         //documentacaoCientifica
-        "/{api_version}/documentacaoCientifica/:id": [4, 5, 6, 7],
+        "/{api_version}/documentacaoCientifica/:id": [3.5, 4, 5, 6, 7],
         //documentacaoApoio
-        "/{api_version}/documentacaoApoio/:id/entradas/:idEnt/elementos/:idElem/": [4, 5, 6, 7],
-        "/{api_version}/documentacaoApoio/:id/entradas/:idEnt/": [4, 5, 6, 7],
-        "/{api_version}/documentacaoApoio/:id/": [4, 5, 6, 7],
+        "/{api_version}/documentacaoApoio/:id/entradas/:idEnt/elementos/:idElem/": [3.5, 4, 5, 6, 7],
+        "/{api_version}/documentacaoApoio/:id/entradas/:idEnt/": [3.5, 4, 5, 6, 7],
+        "/{api_version}/documentacaoApoio/:id/": [3.5, 4, 5, 6, 7],
         //logs
         "/{api_version}/logs": 7,
         //logsAgregados
         "/{api_version}/logsAgregados": 7,
         //noticias
-        "/{api_version}/noticias/:id": [4, 5, 6, 7],
+        "/{api_version}/noticias/:id": [3.5, 4, 5, 6, 7],
         //pedidos
         "/{api_version}/pedidos": 7,
         //pendentes
@@ -299,6 +301,6 @@ module.exports = {
         //users
         "/{api_version}/users/:id": 7,
         //vocabularios
-        "/{api_version}/vocabularios/termo/:id": [1, 3, 3.5, 4, 5, 6, 7]
+        "/{api_version}/vocabularios/termo/:id": [4, 5, 6, 7]
     }
 }
